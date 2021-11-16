@@ -1,0 +1,25 @@
+{
+  "name": "W06D03-backend-todo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "Dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Brawan89/W06D03-backend-todo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Brawan89/W06D03-backend-todo/issues"
+  },
+  "homepage": "https://github.com/Brawan89/W06D03-backend-todo#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
