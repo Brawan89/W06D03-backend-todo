@@ -20,6 +20,11 @@
   },
   "homepage": "https://github.com/Brawan89/W06D03-backend-todo#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "axios": "^0.24.0",
+    "cors": "^2.8.5",
+    "env": "0.0.2",
+    "express": "^4.17.1",
+    "fs": "0.0.1-security",
+    "morgan": "^1.10.0"
   }
 }
