@@ -1,15 +1,9 @@
-const fs = require("fs");
+const todoModel = require("./../../db/models/todo");
 
-let todos = [];
 
-fs.readFile("./db/todos.json", (err, data) => {
-  if (err) {
-    console.log(err);
-    return err;
-  } else {
-    todos = JSON.parse(data.toString());
-  }
-});
+let todos = [  
+{id: 1 , todoName: "study" , isComplete: true},
+{id: 2 , todoName: "walk"  , isComplete: true}];
 
 //get 1
 const getAllTodos = (req , res) =>{
@@ -49,13 +43,7 @@ const createNewTodo = (req , res) =>{
         isComplete: false
     }
     todos.push(newItems);
-    fs.writeFile("./db/todos.json", JSON.stringify(todos), (err) => {
-        if (err) {
-          res.status(400).json("bad request");
-        } else {
-          res.status(200).json(todos);
-        }
-      });
+    res.status(200).json(todos);
 }
 
 // put 1
@@ -71,13 +59,8 @@ const updateTodo = (req , res) => {
         }
         let todo = todos.indexOf(found)
         todos.splice(todo , 1 , newEdit)
-        fs.writeFile("./db/todos.json", JSON.stringify(todos), (err) => {
-            if (err) {
-              res.status(400).json("bad request");
-            } else {
-              res.status(200).json(todos);
-            }
-          });
+        res.status(200).json(todos);
+
     }
     else{
         res.status(404)
@@ -97,13 +80,7 @@ const updateisComplete = (req , res)=>{
         }
         let up = todos.indexOf(found)
         todos.splice(up , 1 , ed)
-        fs.writeFile("./db/todos.json", JSON.stringify(todos), (err) => {
-            if (err) {
-              res.status(400).json("bad request");
-            } else {
-              res.status(200).json(todos);
-            }
-          });
+        res.status(200).json(todos);
     }
     else{
         res.status(404)
@@ -114,13 +91,7 @@ const updateisComplete = (req , res)=>{
 //del 1
 const deletAllList = (req , res)=>{
     todos = []; //empty array -> لان بدونها مارح تنحذف 
-    fs.writeFile("./db/todos.json", JSON.stringify(todos), (err) => {
-        if (err) {
-          res.status(400).json("bad request");
-        } else {
-          res.status(200).json(todos);
-        }
-      });
+    res.status(200).json(todos);
 }
 //2
 const deletComplete = (req , res)=>{
@@ -128,13 +99,7 @@ const deletComplete = (req , res)=>{
         return elem.isComplete === false;
     })
     todos=[...found]
-    fs.writeFile("./db/todos.json", JSON.stringify(todos), (err) => {
-        if (err) {
-          res.status(400).json("bad request");
-        } else {
-          res.status(200).json(todos);
-        }
-      });
+    res.status(200).json(todos);
 }
 
 

@@ -1,5 +1,4 @@
 const express = require("express");
-// const app = express();
 
 const {
     getAllTodos,
@@ -19,9 +18,9 @@ const getAlltodosMiddleware = (req, res, next) => {
     next();
   };
 
-  const todoRoute = express.Router();
+  const todoRoute = express();
 
-  todoRoute.get("/todos" , getAlltodosMiddleware ,getAllTodos);
+  todoRoute.get("/" , getAlltodosMiddleware ,getAllTodos);
   todoRoute.get("/todoComplete" , getComplete);
   todoRoute.get("/todoNotComplete" , getNotComplet);
   todoRoute.post("/add" , createNewTodo);
