@@ -1,4 +1,5 @@
 const express = require("express");
+// const app = express();
 
 const {
     getAllTodos,
@@ -18,9 +19,9 @@ const getAlltodosMiddleware = (req, res, next) => {
     next();
   };
 
-  const todoRoute = express();
+  const todoRoute = express.Router();
 
-  todoRoute.get("/" , getAlltodosMiddleware ,getAllTodos);
+  todoRoute.get("/todos" , getAlltodosMiddleware ,getAllTodos);
   todoRoute.get("/todoComplete" , getComplete);
   todoRoute.get("/todoNotComplete" , getNotComplet);
   todoRoute.post("/add" , createNewTodo);
@@ -31,4 +32,4 @@ const getAlltodosMiddleware = (req, res, next) => {
 
 
 
-  module.exports = todoRoute;
+  module.exports = todoRoute; 
